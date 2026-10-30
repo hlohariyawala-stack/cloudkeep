@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudKeep - Mini Project</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background: #f4f7f6; margin: 40px; color: #333; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: #0f62fe; text-align: center; } /* IBM Blue Accents */
+        input[type="text"] { width: 75%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 10px 20px; background: #0f62fe; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0353e9; }
+        ul { list-style-type: none; padding: 0; margin-top: 20px; }
+        li { padding: 12px; background: #f4f4f4; margin-bottom: 8px; border-left: 5px solid #0f62fe; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>☁️ CloudKeep Dashboard</h2>
+        <p style="text-align: center; color: #666;">Hosted successfully on IBM Cloud Code Engine</p>
+        
+        <form method="POST" action="/add">
+            <input type="text" name="task" placeholder="Enter a new task or note..." required>
+            <button type="submit">Save to Cloud</button>
+        </form>
+
+        <ul>
+            {% for item in tasks %}
+                <li>{{ item.task }}</li>
+            {% else %}
+                <li style="border-left: 5px solid #ffb300;">No tasks found. Add your first note above!</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
